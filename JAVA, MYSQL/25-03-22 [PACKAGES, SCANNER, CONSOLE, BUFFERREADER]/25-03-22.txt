@@ -1,0 +1,84 @@
+Packages	----
+
+package can be defined as a grouping of related types.
+classes, interfaces, enumerations and annotations.
+Ex - java.lang.*, java.util.*
+built in packages, user defined
+
+package mypackage;
+public class Start {
+	public void display() {
+		System.out.println("I am in Display-Start class");
+	}
+}
+
+class PackageDemo {
+	public static void main() {
+		mypackage.Start ob=new mypackage.Start();
+		ob.display();
+	}
+}
+
+import mypackage.Start;
+class PackageDemo {
+	public static void main() {
+		Start ob=new Start();
+		ob.display();
+	}
+}
+
+set classpath = D:\;.  is for setting the path, this is temporary
+or you can set in Enviroment variable, this is permanent
+
+jar -cvf mypackage.jar *.class
+jar -cvf mypackage.jar *
+
+bean -- getter and setter method
+dao -- database connectivity sql
+services - add, edit, delete
+utils -- connect, username, password etc
+
+Scanner Class	----
+
+Console Class	----
+
+console is a predefined class that is avaliable in IO package
+it is used to get user input at runtime
+it is used for security
+
+console class method
+	1. readLine()
+	2. readPassword()
+	
+Syntax:-	Console ob=System.console();
+
+console is a static method
+
+import java.io.Console;
+class ConsoleDemo {
+	public static void main(String[] args) {
+		String str; char ch[];
+		Console ob=System.console();
+		System.out.print("Enter Username: ");
+		str=ob.readLine();
+		System.out.print("Enter Password: ");
+		ch=ob.readPassword();
+		System.out.println("Username: "+str+" Password: "+ch);
+		String a=String.valueOf(ch);
+		System.out.println("Username: "+str+" Password: "+a);
+	}
+}
+
+Buffer reader	----
+
+Public statics void main(String[] args) throws Exception
+InputStreamReader i=new InputStreamReader(System.in)
+BufferReader b=new BufferReader(i);
+String name=b.readLine();
+System.out.println(name);
+
+BufferReader can only read String but Scanner can read both String and other data types like int, float etc.
+BufferReader has a large Buffer(8Kb) then scanner(1Kb). For long string we use BufferReader.
+BufferReader is older than scanner is introduce in JDK 1.5
+Scanner uses regular expression to read and parse input(). It can accept custom delimiter while BufferReader can only read and store String using readline() method.
+BufferReader is Synchronzed while Scaner is not.

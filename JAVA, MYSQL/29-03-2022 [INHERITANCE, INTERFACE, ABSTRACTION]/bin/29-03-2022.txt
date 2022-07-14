@@ -1,0 +1,382 @@
+Throws		----
+
+Throws keyword is used to declare an exception. it gives an information to the caller method that there may occur an exception so it is better for the caller method to provide the exception handling code so that normal flow can be maintained.
+Throws use with method name.
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+class ThrowsException {
+	void show() throws FileNotFoundException {
+		FileInputSteam f=new FileInputSteam("D:\Yash Technology\Core JAVA\28-03-2022 Exceptions\Assignment\abc.txt");
+	}
+}
+class ThrowsDemo {
+	public static void main(String[] args) {
+		ThrowsException t=new ThrowsException();
+		try {
+			t.show();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Hello-normal Termination");
+	}
+}
+
+Diffrence between throw and throws	----
+
+Throw keywork is used to create an exception object manually and throws keyword is used to declare exceptions.
+Throw keyword is mainly used for runtime exception or unchecked exceptions but throws is mainly used for compile time exception or checked exceptions.
+With throw keyword, we can throw only single exception but in case of throws keyword we can declare multiple exception that is 
+Throw keyword is used within the method and throws keywordis used with method signature.
+Throw keyword is followed by new instance but throws keyword is followed by class
+We cannot write any statement after throw keyword but throws doesnot have any such rule.
+
+Inner Class		----
+
+In java just like method, variable of a class we can have another class as its member.
+the class written within is called the nested class.
+the class that holds the iner class is called outer class.
+
+Inner class or nested class 	----
+
+Types of inner class
+	1.static inner class
+	2.Non static inner class
+
+Static inner class instance can be created outside the outside the outer class with the following syntax
+	Outer.inner obj=new Outer.inner();
+		
+No need to create instance of outer class.
+
+For non-static inner class we need to create first outer class object.
+	Syntax:- Outer o=new Outer();
+			 Outer.inner o1=o.new inner();
+
+class Outer {
+	static class Inner {
+		void show() {
+			System.out.println("Outer Show");
+		}
+	}
+}
+public class OuterDemo {
+	public static void main(String[] args) {
+		Outer.Inner oi=new Outer.Inner();
+		oi.show();
+	}
+}
+
+class Outer {
+	class Inner {
+		void show() {
+			System.out.println("Outer Show");
+		}
+	}
+}
+public class OuterDemo {
+	public static void main(String[] args) {
+		Outer o=new Outer();
+		Outer.Inner oi=o.new Inner();
+		oi.show();
+	}
+}
+
+Inner class or nested class 	----
+
+If inner class is non-static, it can access outer class members.
+If inner class is staic, it cannot access outer class members.
+If outer class member is static then static inner class can access outer class static members.
+Inner class can be private, protected, public or default
+
+Non static inner class is known as nested classes.
+
+
+Q1.
+
+abstract class GeneralBank	{    
+	abstract double getSavingInterestRate(double interest);  
+	abstract double getFixedDepositInterestRate(double interest);
+}
+class ICICI extends GeneralBank {    
+	double getSavingInterestRate(double interest){
+		return interest;
+	}
+	double getFixedDepositInterestRate(double interest){
+		return interest;
+	}
+}        
+class SBI extends GeneralBank {    
+	double getSavingInterestRate(double interest){
+		return interest;
+	}
+	double getFixedDepositInterestRate(double interest){
+		return interest;
+	}
+}
+class Main {    
+	public static void main(String args[]) {    
+		ICICI b=new ICICI();
+		System.out.println("Saving : "+b.getSavingInterestRate(4)+" %"+" Fixed : "+b.getFixedDepositInterestRate(8.5)+" %");
+		SBI b=new SBI();        
+		System.out.println("Saving : "+b.getSavingInterestRate(4)+" %"+" Fixed : "+b.getFixedDepositInterestRate(7)+" %");
+		GeneralBank b=new ICICI();
+		System.out.println("Saving : "+b.getSavingInterestRate(4)+" %"+" Fixed : "+b.getFixedDepositInterestRate(8.5)+" %");		
+		GeneralBank b=new SBI();        
+		System.out.println("Saving : "+b.getSavingInterestRate(4)+" %"+" Fixed : "+b.getFixedDepositInterestRate(7)+" %");    
+	}
+}       
+
+Q2.
+
+import java.util.Random;
+abstract class Compartment {    
+	public abstract String notice();
+}
+class FirstClass extends Compartment {    
+	@Override
+	public String notice() {
+		return "You are in First Class Compartment";
+	}
+}
+class Ladies extends Compartment {    
+	@Override
+	public String notice() {
+		return "You are in Ladies Compartment";
+	}
+}
+class General extends Compartment {    
+	@Override
+	public String notice() {
+		return "You are in General Compartment";
+	}
+}
+class Luggage extends Compartment {    
+	@Override
+	public String notice() {
+		return "You are in Luggage Compartment";
+	}
+}
+public class TestCompartment {
+	public static void main(String[] args) {
+		Compartment compartment[]=new Compartment[10];
+		Random random=new Random();
+		for(int i=0; i<10; i++) {
+			int x = random.nextInt(4)+1;
+			if(x==1) {
+				compartment[i]=new FirstClass();
+			} else if(x==2) {
+				compartment[i]=new Ladies();
+			} else if(x==3) {
+				compartment[i]=new General();
+			} else if(x==4) {
+				compartment[i]=new Luggage();
+			}
+			System.out.println(compartment[i].notice());
+		}
+	}
+}
+
+
+Q3.
+
+interface LibraryUser {  
+	void registerAccount();
+	void requestBook();
+}  
+class KidUsers implements LibraryUser { 
+    int age;
+    String bookType;
+    
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getBookType() {
+        return bookType;
+    }
+    public void setBookType(String bookType) {
+        this.bookType = bookType;
+    }
+    
+	public void registerAccount() {
+		if(age<12) {
+			System.out.println("You have successfully registered under a Kids Account");
+		} else if(age>12) {
+			System.out.println("Sorry, Age must be less than 12 to register as a kid");
+		}
+	}
+	public void requestBook() {
+		
+		if(bookType.equalsIgnoreCase("Kids")) {
+			System.out.println("Book Issued successfully, please return the book within 10 days");
+		} else {
+			System.out.println("Oops, you are allowed to take only kids books");
+		}
+	}
+}
+class AdultUser implements LibraryUser {
+    int age;
+    String bookType;
+    
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getBookType() {
+        return bookType;
+    }
+    public void setBookType(String bookType) {
+        this.bookType = bookType;
+    }
+    
+	public void registerAccount() {
+		if(age>12) {
+			System.out.println("You have successfully registered under a Adult Account");
+		} else if(age<12) {
+			System.out.println("Sorry, Age must be greater than 12 to register as a adult");
+		}
+	}
+	public void requestBook() {
+		if(bookType.equalsIgnoreCase("Fiction")) {
+			System.out.println("Book Issued successfully, please return the book within 7 days");
+		} else {
+			System.out.println("Oops, you are allowed to take only adult Friction books");
+		}
+	}  
+}
+public class LibraryInterfaceDemo {
+	public static void main(String[] args) {
+		KidUsers kidUsers=new KidUsers();
+		kidUsers.setAge(10);
+		kidUsers.setBookType("Kids");
+		kidUsers.registerAccount();
+		kidUsers.requestBook();
+		AdultUser adultUser=new AdultUser();
+		adultUser.setAge(18);
+		adultUser.setBookType("Fiction");
+		adultUser.registerAccount();
+		adultUser.requestBook();
+	}
+}
+
+Q4.
+
+package testpackage;
+class foundation {
+    private int Var1;
+	default int Var2;
+	protected int Var3;
+	public int Var4;
+}
+     
+import testpackage.foundation;
+public class Main {
+	foundation obj=new foundation();
+	foundation.Var1=1;
+	System.out.println(foundation.Var1);
+	foundation.Var2=2;
+	System.out.println(foundation.Var2);
+	foundation.Var3=3;
+	System.out.println(foundation.Var3);
+	foundation.Var4=4;
+	System.out.println(foundation.Var4);
+}	 
+
+Q5.
+
+package com.automobile;
+public abstract class Vehicle {
+	public abstract void getModelName();
+	public abstract void getRegistrationNumber();
+	public abstract void getOwnerName();
+}
+
+package com.automobile;
+public class Honda extends Vehicle {
+	private String modelName;
+	private String registrationNumber;
+	private String ownerName;
+	private int speed;
+	public Honda(String modelName, String registrationNumber, String ownerName, int speed) {
+		super();
+		this.modelName = modelName;
+		this.registrationNumber = registrationNumber;
+		this.ownerName = ownerName;
+		this.speed = speed;
+	}
+	@Override
+	public void getModelName() {
+		System.out.println("modelName: " + modelName);
+	}
+	@Override
+	public void getRegistrationNumber() {
+		System.out.println("registrationNumber: " + registrationNumber);
+	}
+	@Override
+	public void getOwnerName() {
+		System.out.println("ownerName: " + ownerName);
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void cdplayer() {
+		System.out.println("Accessing CD Player.");
+	}
+}
+
+package com.automobile.twowheeler;
+import com.automobile.Vehicle;
+public class Hero extends Vehicle {
+	private String modelName;
+	private String registrationNumber;
+	private String ownerName;
+	private int speed;
+	public Hero(String modelName, String registrationNumber, String ownerName, int speed) {
+		super();
+		this.modelName = modelName;
+		this.registrationNumber = registrationNumber;
+		this.ownerName = ownerName;
+		this.speed = speed;
+	}
+	@Override
+	public void getModelName() {
+		System.out.println("modelName: " + modelName);
+	}
+	@Override
+	public void getRegistrationNumber() {
+		System.out.println("registrationNumber: " + registrationNumber);
+	}
+	@Override
+	public void getOwnerName() {
+		System.out.println("ownerName: " + ownerName);
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void radio() {
+		System.out.println("Accessing the radio");
+	}
+}
+
+import com.automobile.Honda;
+import com.automobile.twowheeler.Hero;
+public class Main {
+	public static void main(String[] args) {
+		Hero hero=new Hero("Hero", "AB12", "TEST", 10);
+		hero.getModelName();
+		hero.getOwnerName();
+		hero.getRegistrationNumber();
+		hero.getSpeed();
+		hero.radio();
+		Honda honda=new Honda("Honda", "AB12", "TEST", 10);
+		honda.getModelName();
+		honda.getOwnerName();
+		honda.getRegistrationNumber();
+		honda.getSpeed();
+		honda.cdplayer();
+	}
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: fixed;
+            background-color: cadetblue;
+        }
+        .buttons {
+            background-color: white; 
+            color: black; 
+            border: 2px solid #555555;
+        }
+        .buttons:hover {
+            background-color: #555555;
+            color: white;
+        }
+        aside {
+            width: 30%;
+            padding-left: 15px;
+            margin-left: 15px;
+            float: right;
+            font-style: italic;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <b>HIDDEN</b>
+    <span hidden>This is hidden.</span>
+    <hr>
+    <b>ACCESS KEY</b><br>
+    <a href="a.html" accesskey="A">A</a><br>
+    <a href="b.html" accesskey="B">B</a>
+    <hr>
+    <b>MARQUEE</b>
+    <marquee>This is basic example of marquee</marquee>
+    <!-- <marquee width = "50%">This example will take only 50% width</marquee> -->
+    <marquee direction = "right">This text will scroll from left to right</marquee>
+    <hr>
+    <b>ASIDE</b>
+    <aside>
+        <p>Aman Kumar</p>
+    </aside>
+    <hr>
+    <b>FIELDSET</b>
+    <fieldset>
+        <legend>Form</legend>
+        <table style="width: 100%;">
+            <tr>
+                <td><label for="fname">First name</label></td>
+                <td><input type="text" id="fname" name="fname" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><label for="lname">Last name</label></td>
+                <td><input type="text" id="lname" name="lname" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td><label for="bday">Date Of Birth</label></td>
+                <td><input type="datetime-local" id="bday" name="bday" style="width: 100%;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="right">
+                    <br>
+                    <input type="reset" value="Reset" class="buttons" >
+                    <input type="submit" value="Submit" class="buttons"  onclick="submitFunction()">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <script>
+        function submitFunction() {
+          alert("Form submited");
+          var firstName = document.getElementById("fname").value;
+          var lastName = document.getElementById("lname").value;
+          console.log(firstName, lastName);
+        }
+    </script>
+</body>
+</html>

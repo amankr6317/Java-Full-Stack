@@ -1,0 +1,7 @@
+regex 
+
+[7-9][0-9]{9}
+^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$
+/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9])
+
+diffrent loging levels

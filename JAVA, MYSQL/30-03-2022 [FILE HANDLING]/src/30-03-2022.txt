@@ -1,0 +1,195 @@
+File Handling	----
+
+Stream 	----
+
+A Steam is a sequence of data. In java, a steam is composd of bytes.
+In java, 3 streams are created for us automatically.All these steams are attached with the console.
+
+File Class	----
+
+File Class(import java.io.File;)
+File f=new File("d:/yash/abc.txt");
+
+Methods :-
+canWrite() - can file write
+exists() - is file exist
+getName() - filename
+length() - length of file
+
+FileReader class: This class inherits from the InputSteamReader Class.File reader is used for reding streams or characters.
+FileReader fileReader=new FileReader(filename/path);
+
+FileWriter class: This class inherits from the OutputSteamWriter Class.File Writer is used for writing steam or characters.
+FileWriter fileWriter=new FileWriter(filename/path);
+
+Stream 	----
+
+InPutStream - the inputStream is used to read data from a source 
+OutPutStream - the outputStream is used for writing data to a destination.
+
+Object
+	- InputStream
+		- FileInputStream
+		- ByteArrayInputStream
+		- FilterInputStream
+			- BufferedInputStream
+			- DataInputStream
+		- ObjectInputStream
+	- OutputStream
+		- FileOutputStream
+		- ByteArrayOutputSteam
+		- FilterOutputSteam
+			- DataOutputStream
+			- BufferedOutputStream
+		- ObjectOutputSteam
+
+Diffrent Streams	----
+
+Byte Streams: java byte stream are usde to perform input and output of 8bit bytes frequently used classes for byte streams are fileInputStream and FileOutputStream
+
+Character Streams : java byte stream are used to perform input and output of 8bit whereas Java character streams are used to perform input and outPut for 16-bit unicode.
+					the most frequently used classes are FileReader and FileWriter. Through internally FileReader uses FileInputStream and FileWriter uses FileOutputStream		
+
+Standard Stream: Standard Input, Standard Output, Standard Error
+
+BufferedOutput Stream: BufferedOutputStream class is used for buffering an output stream. It internally uses buffer to store data. It adds more efficiency than to write data direclty into a stream. It extends FilterOutputStream.
+
+BufferedInput Stream: Java BufferedInputStream class is used to read information from stream.It internally uses buffer mechanisum to make the performance fast. it extends FilterInputStream
+
+The important point about BufferedInputStream are:
+	When the byte from the stream are skipped or read, the internal buffer automatically refilled from the contained input Stream, many bytes at a time.
+	When a bufferedInputStream is created, an Internal buffer array is created.
+
+SequencelInputStream: java SequenceInputStream class is used to read data from multiple stream. It reads data from multiple stream. It reads data sequentially (one by one). It extends InputStream.
+
+ByteArrayOutputStream: java ByteArrayOutputStream class is used to write common data into multiple files. In this stream, the data is written into a byte array which can be written to multiple stream later.
+					   The ByteArrayOutputStream hold a copy of data and forwards it to multiple streams.
+
+ByteArrayInputStream: Java ByteArrayInputStream class contains an internal buffer which is used to read byte array as stream. In this stream, the data is read from a byte array. 					   
+	
+Data Stream	 ----	
+
+DataOutputStream: java DataOutputStream class allows an application to read primitive data types to the output stream in a machine-independent way.
+				  It generally uses the data output stream to write data that can later be read by a data input stream.
+
+DataInputStream: java DataInputStream class allows an application to read primitive data from the input stream.
+				 It generally uses the data output stream to write data that can later be read by a data input stream.
+
+Object Stream	----				   
+
+Just as data stream support I/O of primitive data type, object streams support I/O of objects.
+The Object stream classes are ObjectInputStream and ObjectOutputSTream. These classes implement ObjectInput and ObjectOutput, which are subinterfaces of DataInput and DataOutput, which are subinterfaces of DataInput and DataOutput, which are subinterface of dataInput and DataOutput. That means that all the primitive data I/O methods coved in data Streams are also implemented in object stream.
+An object stream can contain a mixture of primitive and object values.
+Serialization is a mechanism for string an objct states into presistent storage like files, databases and the process of reterival of objects from files and databasesis called as deserialization. 
+
+
+import java.io.File;
+class FileDemo2 {
+	public static void main(String[] args) {
+		File file=new File("d:/yash/abc.txt");
+		file.createNewFile();
+		System.out.println(file.exists());
+		System.out.println(file.canWrite());
+		System.out.println(file.getName());
+		System.out.println(file.length());
+		file.delete();
+	}
+}
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+class FileReaderWriter {
+	public static void main(String[] args) throws IOException {
+		File f=new File("d:/yash/FileReadWrite.txt");
+		f.createNewFile();
+		FileWriter w=new FileWriter(f);
+		w.writer("Welcome to yash");
+		w.close();
+		FileReader r=new FileReader(f);
+		char a[]=new char[f.length()];
+		r.read(a);
+		for(char c:a) {
+			System.out.print(c);
+		}
+		r.close();
+	}
+}
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+class FileInputOutputStreamDemo {
+	public static void main(String[] args) throws IOException {
+		FileInputStream in=new FileInputStream("d:/yash/abc.txt");
+		FileOutputStream out=new FileOutputStream("d:/yash/xyz.txt");
+		int c;
+		while((c=in.read()!=-1) {
+			out.write(c);
+		}
+		in.close();
+		out.close();
+	}
+}
+
+import java.io.FileInputStream;
+import java.io.BufferedInputStream;
+class BufferedInputDemo {
+	public static void main(String[] args) {
+		try {
+			FileInputStream fin=new FileInputStream("d:/yash/abc.txt");
+			BufferedInputStream bin=new BufferInputStream(fin);
+			int i;
+			while((i=bin.read())!=-1) {
+				System.out.println((char)i);
+			}
+			bin.close();
+			fin.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+class SequenceInputDemo {
+	public static void main(String[] args) throws IOException {
+		FileInputStream fin1=new FileInputStream("d:/yash/abc.txt");
+		FileInputStream fin2=new FileInputStream("d:/yash/xyz.txt");
+		SequenceInputStream st=new SequenceInputStream(fin1,fin2);
+		int i;
+		while((i=st.read())!=-1) {
+			System.out.println((char)i);
+		}
+		st.close();
+		fin2.close();
+		fin1.close();
+	}
+}
+
+import java.io.*;
+class Employee implements Serializable {
+	int empId;
+	String empName;
+	Employee(int empId, String empName) {
+		this.empId=empId;
+		this.empName=empName;
+	}
+	public String toString() {
+		return empId+" "+empName;
+	}
+}
+class EmployeeObjectDemo {
+	public static void main(String[] args) throws  {
+		// Employee e=new Employee();
+		// System.out.println(e);
+		File f=new File("d:/yash.txt");
+		ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(f));
+		Employee e=(Employee)ois.readObject();
+		oos.close();
+		// ObjectInputStream ois=new ObjectInputStream(new FileInputStream(f));
+		// ois.readObject(e);
+		// ois.close();	
+	}
+}
+

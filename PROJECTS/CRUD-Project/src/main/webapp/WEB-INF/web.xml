@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>CRUD_Project</display-name>
+  <welcome-file-list>
+    <welcome-file>signin.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>CRUDSave</servlet-name>
+    <servlet-class>com.yash.servlet.CRUDSave</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDSave</servlet-name>
+    <url-pattern>/save</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CRUDUpdate</servlet-name>
+    <servlet-class>com.yash.servlet.CRUDUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDUpdate</servlet-name>
+    <url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CRUDUpdateFormValue</servlet-name>
+    <servlet-class>com.yash.servlet.CRUDUpdateFormValue</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDUpdateFormValue</servlet-name>
+    <url-pattern>/updatevalue</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CRUDDelete</servlet-name>
+    <servlet-class>com.yash.servlet.CRUDDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDDelete</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CRUDSignIn</servlet-name>
+    <servlet-class>com.yash.servlet.CRUDSignIn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRUDSignIn</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,56 @@
+Action tags:- used to control the flow between the pages and to use javabean.
+jsp: forward:- the request and responce to another resource
+jsp: include:- another resource
+jsp: userbean:- crates bean object
+jsp: setProperty:- set the value of property in bean object
+jsp: getProperty:- print the value of the property of the bean
+jsp: param:- sets the parameter value
+jsp: plugin:- embeds the another components
+jsp: fallback:- if our plugin is working, can used to check (print message)(jsp: plugin)
+
+java bean :- 
+	java bean is a java class it follows the mentioned rules.
+	it should provide to set and get the value of the properties.
+	it should have a no arg constructor
+	it should be serializable
+
+Why javabean?
+Encapsulated many object into a single object.
+
+getPropertyName(), setPropertyName()
+	
+JSP:useBean
+
+<jsp:useBean id="" scope="" class="" type="" beanname=""></jsp:userBean>
+id -> identify the bean in the scope
+Scope -> page, request, session, application default scope=page
+page -> specify that you can use this bean with the jsp page.
+Request -> you can use his from any jsp page that processes the same request.
+(Request has the wide scope than page)
+session -> you can use this bean from any jsp page in the same session.	
+application -> you can use this bean from 
+class -> bean class (Create an object of the bean), it must have no-arg constructor.it not be abstract.
+Type -> maily used class or beanname attribute(provide the bean type).
+beanname -> instanstiates the bean using instantiate() method.	
+
+JSTL 
+
+represent a set of tags to make development in JSP
+Advantage:
+Faster development, code reusability, we can avoid scriplet tag
+
+5 types of tags:-
+core tags -> variable support, flow control prefix(c)
+function tags -> string maniplution prefix:(fn)
+formatting tags -> date, number and other formatting prefix:fmt
+XML tags -> flow control, transformation prefix:x
+SQl tags -> sql support prefix:sql
+
+core tags
+c:out -> display the result
+c:set -> set the result of an expression
+c:remove -> remove the specified scoped variable from a particular scope.
+c:if -> testing the condition and display the content only
+c:url, c:redirect, c:param, c:foreach, c:import etc.
+
+

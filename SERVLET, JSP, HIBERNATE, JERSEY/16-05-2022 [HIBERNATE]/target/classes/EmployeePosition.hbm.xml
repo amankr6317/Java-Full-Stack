@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yash.EmployeePosition" table="employee_position">
+		<id name="ID" type="java.lang.Integer">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="EmpPosition" type="string" column="EmpPosition" />
+		<property name="DateOfJoining" type="date" column="DateOfJoining" />
+		<property name="Salary" type="java.lang.Integer" column="Salary" />
+		<many-to-one name="employeeInfo" class="com.yash.EmployeeInfo" column="EmpID" />
+	</class>
+</hibernate-mapping>

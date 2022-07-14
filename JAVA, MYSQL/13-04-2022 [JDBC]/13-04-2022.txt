@@ -1,0 +1,47 @@
+MYSQL 	----
+
+Select --> select * from tablename;
+	   --> all columns
+
+Where is used to filter records.
+	   --> Select * from employee where department = 'Training';
+
+AND, OR and NOT
+	   --> AND Operator display a record if all the condition are true separated by and.
+	   --> OR Operator display a record if any of the condition is true.
+	   --> NOT displays a record if the condition is not true.  
+
+i want to view how many table in a database --> show tables;
+
+see the structure of table --> desc tablename;
+
+order by --> used to sort the result in ascending or descending order. (default order --> ascending), use the desc keyword.
+
+null --> is null, is not null.
+
+limit --> it is used to specify the number of record to return.
+
+like --> for specificed searching of a pattern.
+% --> reprent zero, onr or multiple charaters, represents single character.
+'j%' --> find any value that start with j
+'__a_b%' --> 3rd will be a and 5th will be b.
+
+alter table tablename modify columnname datatype.
+
+Drop a column --> alter table table name drop column name.
+
+DDL --> (create, alter, truncate, drop, rename)
+DML --> (select, insert, update, delete)
+DCl --> (grant, revoke)
+TCL --> (rollback, commit, savepoint) 
+
+Constraints ----
+
+Primary key --> it the concept of unique and not null.
+foreign key --> it is used to make the table connected or linked with another table.
+unique --> all values in a column are diffrent
+not null --> it inforce a column to not accept null values.
+check --> limit the value range
+default --> it is used to set default value of the column.
+	
+	   

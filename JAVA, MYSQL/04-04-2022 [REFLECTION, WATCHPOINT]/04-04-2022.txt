@@ -1,0 +1,194 @@
+Reflection API 	----
+
+Reflection API : A set of classes given for read the class infotmation at the time of execution.
+Access Specifiers/modifiers, variable, constructors methods, inner classes all are correctly written.
+Accessing the class members or class information and executing dynamically.
+Scanner reader and Bufferreader(String, Integer)
+Reflection API is used for product development like compiler.
+
+methods:
+	java.lang.reflect.Field
+	java.lang.reflect.Method
+	java.lang.reflect.Constructor
+	java.lang.reflect.modifier
+
+Javap tool is used to get information of any class or interface.
+Displays information abount the fields, constructors, methods, exceptions.
+
+class ClassDemo {
+   public static void main(String[] args) {
+      try {
+         Class cls = Class.forName("ClassDemo");
+
+         // returns the ClassLoader object
+         ClassLoader cLoader = cls.getClassLoader();
+       
+         /* returns the Class object associated with the class or interface 
+            with the given string name, using the given classloader. */
+         Class cls2 = Class.forName("java.lang.Thread", true, cLoader);       
+          
+         // returns the name of the class
+         System.out.println("Class = " + cls.getName());
+         System.out.println("Class = " + cls2.getName()); 
+      } 
+      catch(ClassNotFoundException ex) {
+         System.out.println(ex.toString());
+      }
+   }
+}
+
+Parser -> it is used to break the data in smaller element.
+Why in java? -> When you fail the code properly, it is the parser who identifies the error
+Purpose ? -> The process of identifying the tokens and searching/looking for patterns.
+
+class A{
+}
+class DemoForName {
+	public static void main(String[] args) throws Exception {
+		Class c = new Class.forName("A");
+		System.out.println("A");	
+		System.out.println(c.getName());
+	}
+}
+
+class A{
+}
+class DemoGetClass {
+	void show(Object o) {
+		Class c=o.getClass();
+		System.out.println(c.getName());
+	} 
+	public static void main(String[] args) throws Exception {
+		A a=new A();
+		DemoGetClass d=new DemoGetClass();
+		d.show(a);
+	}
+}
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+
+class Test {
+	private String str;
+	public Test() {
+		s = "HelloWorld";
+	}
+	public void method1()  {
+        System.out.println("Method 1");
+    }
+	public  void method2() {
+        System.out.println("Method 2");
+    }
+}
+class ReflectionDemo {
+    public static void main(String args[]) throws Exception {
+		Test obj = new Test();
+		Class cls1 = obj.getClass();
+		Class cls2 = Class.forName("test");
+		System.out.println("The name of class is " +cls1.getName());
+		System.out.println("The name of class is " +cls2.getName());
+		Constructor constructor = cls1.getConstructor();
+        System.out.println("The name of constructor is " +constructor.getName());
+		Method[] methods = cls1.getMethods();
+        for (Method method:methods)
+            System.out.println(method.getName());
+	}
+}
+
+Determining the class Object 
+	boolean isInterface() : Specified lass object representsan interface type or not
+	boolean isArray() : class object represent an array
+	boolean isPrimitive() : class object represent primitive
+	Class.getSuperClass() -> returns the superclass refrence
+	getDeclaredFields()
+	getDeclaredMethods()
+
+class A{}
+interface b{}
+class DemoForName {
+	public static void main(String[] args) {
+		Class c=Class.forName("A");
+		System.out.println(c.isInterface());
+		class c1=Class.forName("b");
+		System.out.println(c1.isInterface());
+	}
+}
+
+XML VS HTML 	----
+
+XML 	----
+XML focuses on transfer of data.					
+XML is case sensitive.
+XML is strict for closing tag.
+XML are not predefined.
+
+HTML	----
+HTML focuses on presentation of data.
+HTML is case insensitive.
+HTML have or not have closing tags.
+HTML has predefined tags.
+
+XML Parser	----
+Extensible Markup language is a markup language and file formate for storing, transmitting, and reconstructing arbitrary data.
+Arbitrary data means any data in any formate.
+An XML parser is a software library or package that provides interface for client applications to work for programs to use XML.
+Reading a XML file is called Parsing.
+XML Parsing classified into two types 
+	Object Based
+	Event Based
+	
+XML Parser 	----
+	XML
+		- Object Based
+		- Event Based
+			- Push Parsers
+			- Pull Parsers
+			
+DOM (Document Object Model) Parser		----
+
+DOM stands for Document Object Model.
+A DOM document is an object which contains all the information of an XML document. it is composed like a tree structure. The DOM parser implements a DOM API. this API is very simple to use.
+Features of DOM Parser : 
+	A DOm Parser creates an internal structure in memory which is a DOM document object and the client applications get infromation of the original XML document by invoking methods on this documents object.
+	DOM Parser has a tree based structure.
+
+SAX (Simple API for XML) Parser		----
+
+SAX stands Simple API for XML
+A SAX Parser implements SAX API. This API is an event based API.
+Features of SAX Parser : 
+	It does not create any internal structure.
+	Clients does not know methods to call, they just overrides the methods of the API and place his own code inside method.
+
+Diffrence Between DOM and SAX	----
+		
+SAX Parser 	----
+It is called a simple API for XML Parsing.
+It an event based parser.
+SAX Parser is slower than DOM Parser.
+Best for the larger sizes of files.
+It is suitable for making XML files in JAVA.
+The internal structure can not be created by SAX Parser.
+It is read-only.
+In the SAX parser backward navigation is not possiable.
+Suitable for efficient memory.
+A small part of the XML file is only loaded in memory.
+
+DOM Parser	----
+It is called as Document Object Model.
+It stays in a tree structure.
+DOM Parser is faster than SAX Parser.
+Best for the smaller size of files.
+It is not good at making XML file in low memory.
+The internal structure can be creted by DOM Parser.
+It can insert or delete nodes.
+In DOM parser backward and forward search is possiale.
+Suitable for large XML document.
+It loads whole XML documents in memory.
+
+Why DOM and SAX		----
+Form the programm, if the xml file data is to read, the development has to write their own code to parse the xml file and it is complicated.
+Xml parser consumes lot of time and it is complicated, DOM/SAX parser is used to parse the XML file.
+Using this, The code can be developed fast and accurate.
+
+regex and watchpoint /////////////////////////

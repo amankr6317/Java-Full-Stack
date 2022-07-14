@@ -1,0 +1,58 @@
+Queue	----
+
+Queue is interface in java.util. extends collection interface.
+FIFO(First in First out).
+Insert elements, delete elemnets, iterator.
+Queue<Integer> q=new LinkedList();
+q.add()
+Remove first element.
+q.peek();
+q.size();
+Operations : Adding elements, Removing elements,iterating the queue(iterator)
+
+Priority Queue	----
+
+it should be processed according to the priority.
+Queue<Integer> q=new PriorityQueue<Integer>();
+q.peek();
+q.poll();
+
+Map Interface	----
+
+Map contains values on the basis of key and value pair.
+Key-value pair is known as Entry.
+A map doesn,t allow duplicate keys but you can have duplicate values.
+Hashmap and LinkedHashMap allow null keys and values but TreeMap doesn't allow any null key value.
+Hashmap doesn't maintain any order.
+
+Hash Table		----
+Java Hashtable class contains unique elements.
+Java Hashtable class doesn't allow null key or value.
+Java Hashtable class is synchronized.
+
+Multitasking, Multiprocessing, MultiThreading	----
+
+Multitasking - Performing multiple task at single time.
+Multiprocessing - When a system is connected to multiple processors in order to complete task.
+Multithreading - Executing multiple threads at single time.
+
+Process VS Thread	----
+
+Process - 
+a program which is in execution(Heavy Weight).
+will take more time. 
+each process has different address space.
+process are not dependent on each other.
+process does not require synchronization. 
+process require more resources.
+
+thread - 
+it is a subpart of process.
+thread will take less time.
+threads share same address space.
+thread dependent on each other.
+thread may required synchronization.
+thread require less resource.
+
+Context Switching 	----
+

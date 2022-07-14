@@ -1,0 +1,8 @@
+JOINS 	----
+
+equi,non equi joins, cross join, inner join, left join, left outer join, right join, right outer join, full outer join
+
+substr() - 
+instr -
+replace 
+where and having

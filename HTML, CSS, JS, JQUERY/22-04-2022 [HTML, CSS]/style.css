@@ -1,0 +1,65 @@
+/* div {
+    border: 1px solid black;
+} */
+
+body {
+    background-image: url(background.jpg);
+    font-family: arial;
+}
+
+.first_page_body, .second_page_body, .first_div1, .first_div2, .second_div1, .second_div2 {
+    padding: 15px;
+}
+
+.first_div1_inner {
+    border: 1px solid brown ;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    border-radius: 20px 0px 0px 0px;
+    background-color: bisque;
+    width: fit-content;
+    height: fit-content;
+    max-width: 350px;
+}
+
+.first_div2_inner {
+    border: 1px solid brown ;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    border-radius: 20px 0px 0px 0px;
+    background-color: bisque;
+    width: fit-content;
+    height: fit-content;
+    max-width: 350px;
+}
+
+.second_div1_inner {
+    border: 1px solid brown ;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    border-radius: 20px 0px 0px 0px;
+    background-color: bisque;
+    width: fit-content;
+    height: fit-content;
+    max-width: 350px;
+}
+
+.second_div2_inner {
+    border: 1px solid brown ;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    border-radius: 0px 0px 0px 20px;
+    background-color: bisque;
+    width: fit-content;
+    height: fit-content;
+    max-width: 350px;
+    box-shadow: 5px 5px darkgray;
+}

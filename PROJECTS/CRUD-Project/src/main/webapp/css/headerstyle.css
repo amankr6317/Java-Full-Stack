@@ -1,0 +1,52 @@
+.header-1 {
+	width: 60%;
+	margin: auto;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	background-color: white;
+	opacity: 0.6;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.header-options {
+	display: flex;
+	flex-direction: row;
+	width: 30%;
+	margin-right: 1%;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.header-home {
+	background-color: white;
+	font-size: xx-large;
+	transition: 1s;
+	margin-left: 1%;
+	padding: 10px;
+	color: rgb(65, 80, 135);
+	border-radius: 10px;
+}
+
+.header-options-css {
+	background-color: white;
+	font-size: xx-large;
+	transition: 1s;
+	padding: 10px;
+	color: rgb(65, 80, 135);
+	border-radius: 10px;
+}
+
+.header-home:hover {
+	transform: scale(1.2);
+	background-color: rgb(65, 80, 135);
+	color: white;
+}
+
+.header-options-css:hover {
+	transform: scale(1.2);
+	background-color: rgb(65, 80, 135);
+	color: white;
+}

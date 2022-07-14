@@ -1,0 +1,48 @@
+/* * {
+    border: 1px solid red;
+} */
+
+body {
+	font-family: 'Inconsolata', monospace;
+	background-color: rgb(65, 80, 135);
+}
+
+/* .employee-form {
+	width: 60%;
+	margin: auto;
+	margin-top: 100px;
+} */
+
+.employee-form {
+	width: 60%;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.form-header {
+	padding: 0.6em;
+	padding-left: 2em;
+	background-color: #eff2f1;
+	border-radius: 1em 1em 0em 0em;
+}
+
+.employee-form-body {
+	padding: 1.5em;
+	background-color: white;
+	font-size: 20px;
+	border-radius: 0em 0em 1em 1em;
+}
+
+table {
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #eff2f1;
+}

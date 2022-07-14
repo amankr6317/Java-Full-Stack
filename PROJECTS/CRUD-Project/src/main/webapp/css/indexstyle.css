@@ -1,0 +1,120 @@
+/* * {
+    border: 1px solid red;
+} */
+
+body {
+	font-family: 'Inconsolata', monospace;
+	background-color: rgb(65, 80, 135);
+}
+
+.header {
+	color: white;
+	text-align: center;
+	font-size: 100px;
+	padding-bottom: 100px;
+}
+
+.operation-list {
+	display: flex;
+	flex-direction: row;
+	height: 250px;
+	justify-content: center;
+}
+
+.operation {
+	box-shadow: 0 0 30px #424242;
+	padding: 1em;
+	color: white;
+	text-align: center;
+	margin-top: -40px;
+	transition: 1s;
+}
+
+.operation-header {
+	font-size: 6em;
+	width: 250px;
+}
+
+.create {
+	background-color: #A7D2CB;
+	border-radius: 15px;
+}
+
+.read {
+	background-color: #F2D388;
+	border-radius: 15px;
+}
+
+.update {
+	background-color: #C98474;
+	border-radius: 15px;
+}
+
+.delete {
+	background-color: #874C62;
+	border-radius: 15px;
+}
+
+.operation:hover {
+	transform: scale(1.2);
+}
+
+#operation-name {
+	text-decoration: none;
+	color: white;
+}
+
+.employee-form {
+	width: 60%;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.form-header {
+	padding: 0.6em;
+	padding-left: 2em;
+	background-color: #eff2f1;
+	border-radius: 1em 1em 0em 0em;
+}
+
+.employee-form-body {
+	padding: 1.5em;
+	background-color: white;
+	font-size: 20px;
+	border-radius: 0em 0em 1em 1em;
+}
+
+.form-head-css {
+	width: 35%;
+}
+
+.form-input-css {
+	width: 95%;
+	height: 1.5em;
+	font-size: 1em;
+	border: 3px solid rgb(65, 80, 135);
+	border-radius: 5px;
+}
+
+.form-footer {
+	padding: 1em;
+	text-align: right;
+	border-radius: 0em 0em 1em 1em;
+}
+
+.form-button {
+	display: block;
+	margin-left: auto;
+  	margin-right: 0;
+	padding: 0.3em;
+	font-size: 20px;
+	border: 3px solid rgb(65, 80, 135);
+    font-family: 'Inconsolata', monospace;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.form-button:hover {
+	background-color: rgb(65, 80, 135);
+	color: #eff2f1;
+}

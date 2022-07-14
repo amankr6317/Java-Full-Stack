@@ -1,0 +1,162 @@
+Exceptions	----
+
+Exceptions is unexpected event/unwanted event.
+Exceptions is an unwanted or Unexcepted event which occurs during the excution of program that is at run time that disrupts the normal flow of the program.
+Exceptions handling means to handle that unwanted eent or find the alternate solution of it.
+Object is the parent class all the classes of Java.
+Throwable is the parent class of Exception.
+
+Exception vs Error	----
+
+Exception are occurred by our program and errors are occurred because of lack of system resources and programmer cannot do anything.
+Exceptions are recoverable (Handled) but errors are not recoverable.
+Exception are of two types
+	1. Compile time exception (Checked Exception)
+	2. Runtime Exception (Unchecked Exception)
+Error is of one type
+	1. Runtime
+	
+class ExceptionDemo {
+	public static void main(String[] args) {
+		System.out.println("YASH");
+		System.out.println("YASH");
+		System.out.println(100/0); // Runtime exception
+		System.out.println("YASH");
+	}
+}	
+	
+class ExceptionChecked {
+	public static void main (String[] args) {
+		try {
+			FileInputSream fileInputSream = new FileInputSream("D:\Yash Technology\Core JAVA\28-03-2022 Exceptions\abc.txt"); // File Not Found Exception
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		Class.forNAme("com.mysql.jdbc.Driver"); // Class Not Found Exception
+	}
+}
+
+Checked Exception vs Unchecked Exception	----
+	
+	All exceptions occur at Runtime.
+	Checked Exception are checked by compiler.
+	Unchecked Exception are ignore or not able to check by compiler.
+ 	
+Normal and Abnormal Terminations of the Code.	----
+	
+Whenever there is exception the method in which exeption occurs will crete an object and that object will store three things:
+	1. Exception Name
+	2. Description
+	3. Stack Trace
+
+Object provided to JVM, Objecct created by main method then JVM will checked handled or not so JVM will terminate the program(abnormal termination) and printed by Exc3eption Handler.
+Try-catch(handling the excepton using, Proper termination)
+we can handle the exception using 5 keyword:
+	1. try 	2. catch 	3. finally 	4. throw 	5. throws
+	
+class ExceptionChecked2 {
+	public static void main (String[] args) {
+		// FileInputSream fileInputSream = new FileInputSream("D:\Yash Technology\Core JAVA\28-03-2022 Exceptions\abc.txt"); // File Not Found Exception
+		try {
+			// String s=null;
+			// System.out.println(s.length());
+			System.out.println("Hello");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("Bye");
+		// Class.forNAme("com.mysql.jdbc.Driver"); // Class Not Found Exception
+	}
+}	
+
+Print the Exceptions in diffrent ways	----
+
+Exception e;
+e.printStackTrace(); 	// exception name, description, stacktrace(line)
+S.O.P(e) or e.to.String 	// exception name, description.
+s.o.p(e.getMessage()) // description
+
+class ExceptionMessage {
+	public static void main(String[] args) {
+		try {
+			int a=100, b=0, c;
+			c=a/b;
+			System.out.println(c);
+		} catch (ArithmeticException e) {
+			// e.printStackTrace();
+			// System.out.println(e);
+			System.out.println(e.getMessage());
+		} finally {
+			// f.close();
+			System.out.println("I am in Finally Block");
+		}
+	}
+}
+	
+Finally is the block that is always executed wether the exception is handled or not.
+After try, catch or after try without catch.
+In finally block, we always write clean-up code that means database close, file closed, memory release etc.
+We can use multiple catch block with one try block but we can only us single finally block with one try block no multiple.
+the code present in the finally block execute even if the try block contains jump statements like return, cotinue, break.
+Finally block will not executed 
+		1. system.exit()
+		2. Fatal error(Error)
+		3. Exception Occurs in finally block
+		
+Difference between final, finally, finalize() 	----
+
+Final is a keywork, finally is a block, finalize() is a methood
+Final can be used with variable, method, class
+Finally can be use with try or try-catch block
+Finalize method is override for an object.
+Syntax for Finalize
+Protected void finalize() throws Throwable // can be override
+Finalize is executed just before garbage collection.
+
+Q1.Get an input String from user and parse it to interger if it is not a number it will throw number formate exception catch it and print "Entered input is not a valid format for an integer. or else print the square of that number."		
+
+Q2.Write a program that takes as input the size of the array and the elements in the array.The Program then ask the user to enter a particular index and prints the element at that index.This program may generate Array Index Out Of Bounds Exception. Use exception handling mechanisms to handle this exception.
+ 	
+Q3.Write a program that takes as
+
+Q4.Write a class MathOperation which accepts 5 intergers through command line. create an array using these parameters. loop through command line. Create an array using these parameters. Loop throught the array and obtain the sum and avarage of all the elements and display the result. various exception that may arise like ArithmeticException, NumberformateException, and so on should be handled.
+
+Q5.Write a program  with a division method which receive two integer numbers and performs the division operation.
+	
+Throw Keyword	----
+
+throw new exceptionClassName();
+Programmer directly throw the exception to JVM not by main() or not by method()
+throw is used for userdefined or customized exception
+we cannot write any statement after throw statement
+Throw keyword is used for userdefined or customized exception object manually that is normally method creates an exception object as exception occur in that method but when we use throw programmer is responsible to create an exception object.
+throw keyword is mainly used for runtime exception or unchecked exceptions.
+with the help of throw keyword we can throw only single exception
+
+import java.util.Scanner;
+class VoteEligiblity extends runtimeException {
+	VoteEligiblity(String s) {
+		super(s);
+	}
+}
+class ThrowDemo {
+	public static void main(String[] args); {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter your age");
+		int age=s.nextInt();
+		try {
+			if(age<18) {
+				throw new VoteEligiblity("You are not eligible for voting");
+			} else {
+				System.out.println("Yes u can");
+			}
+		} catch (VoteEligiblity e) {
+			e.printStackTrace();
+		}
+	}
+}	
+	
+Q6.Write a program to take care of number formate execption if user enter valure other than integer for calculation average marks of 2 students. the name of the students and marks in 3 subject are taken from the user while executing the program.
+Q7.A Employee portal provider uses to register their profile. During re	
+Q8.Write a program that accept 2 integers a and b as input and find the quotient of a/b.This program may generate an Arithmetic Exception.Use exception handling mechanisms to handle this exception.also illustrate the use of finally block.

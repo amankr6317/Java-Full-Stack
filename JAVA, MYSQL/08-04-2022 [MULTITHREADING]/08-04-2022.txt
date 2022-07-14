@@ -1,0 +1,42 @@
+Interrupt	----
+
+It is used to interrupt an executing thread.
+Interrupt method only works when the thread is in sleepling or waiting state(sleep() or wait()).
+If a thread is not in sleeping or waiting state then calling an interrupt method will be wasted. (it perform normal behavior)
+it throws an InterruptedException.
+
+interrupted() and isInterrupted() 	----
+
+interrupted() and isInterrupted() method is used to check whether a thread is interrupted or not.
+Interrupted method clear the interrupted status from true to false if thread is interrupted.
+isInterrupted() method does not clear the status.
+Syntax : -
+	Interrupted() -> public static boolean interrupted() {}
+	isInterrupted() -> public boolean isInterrupted() {}
+
+Synchronization 	----
+
+It is the process by which we control the accessibility of multiple threads to a shared resources.
+Problem without synchronization.
+	1.Data Inconsistent
+	2.Thread Interference
+Advantages of synchronization.
+	1.No data inconsistency.
+	2.No thread interface.
+Disadvantage of Synchronization
+	1.Increase the waiting 
+	
+Types of Synchronization	----
+
+Process Synchronization(multithreading).
+Thread Synchronization.
+Thread Synchronization classified in 2 types.
+Mutual Exclusive(Synchronized method, block, static Synchronization)
+Cooperation(wait(), notify(), notifyAll()).
+
+InterThreadCommunication(wait(), notify(), notifyall())		----
+
+In this a thread releases the lock and enter into the paused state and another thread acquires the lock and continue to executed.
+Wait() : If any thread call the wait() method it causes the current thread to release the lock and wait until the another thread invoke the notigyall() method for this object oe wait for specified amount of time.
+Notify() : this method is used to wakeup a single thread and release the object lock.
+Notifyall() : this method is used to wakeup all the threads that are in waiting state.

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+      // $(document).ready(function(){
+      //     $("button").click(function(){
+      //         $("p").hide();
+      //     });
+      // });
+
+      $(document).ready(function () {
+        $("#hide").click(function () {
+          $("p").hide();
+        });
+        $("#show").click(function () {
+          $("p").show();
+        });
+      });
+
+      // $("button").click(function(){
+      //     $("p").hide(1000);
+      // });
+
+      // $("button").click(function(){
+      //     $("#div1").fadeIn();
+      //     $("#div2").fadeIn("slow");
+      //     $("#div3").fadeIn(3000);
+      // });
+
+      // $(document).ready(function(){
+      //     $("button").click(function(){
+      //         $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+      //     });
+      // });
+
+      $(document).ready(function () {
+        $("#btn1").click(function () {
+          $("#test1").text("Hello world!");
+        });
+        $("#btn2").click(function () {
+          $("#test2").html("<b>Hello world!</b>");
+        });
+        $("#btn3").click(function () {
+          $("#test3").val("Dolly Duck");
+        });
+      });
+
+      $(document).ready(function () {
+        $("#btn4").click(function () {
+          $("#test1").prepend("<b>Prepended text</b>. ");
+        });
+        $("#btn5").click(function () {
+          $("#test2").prepend("<li>Prepended item</li>");
+        });
+      });
+
+      $(document).ready(function () {
+        $("#testcolour").click(function () {
+          $("#colourthis").addClass("blue");
+        });
+      });
+
+      $(document).ready(function () {
+        $("#empty").click(function () {
+          $("#div1").empty();
+        });
+      });
+
+      $(document).ready(function () {
+        $("p").eq(0).css("background-color", "yellow");
+      });
+    </script>
+    <style>
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Welcome to Yash Technologies</h2>
+    <p id="colourthis">Yash Technologies</p>
+    <!-- <button>hide paragraphs</button> -->
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <!-- <p id="p1">jQuery is fun!!</p>
+        <button>Click me</button> -->
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse" /></p>
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+    <button id="btn4">Prepend text</button>
+    <button id="btn5">Prepend list item</button><br /><br />
+    <div
+      id="div1"
+      style="
+        height: 100px;
+        width: 300px;
+        border: 1px solid black;
+        background-color: yellow;
+      "
+    >
+      This is some text in the div.
+      <p>This is a paragraph in the div.</p>
+      <p>This is another paragraph in the div.</p>
+    </div>
+    <br />
+    <button id="empty">Empty</button>
+    <button id="testcolour">Change Colour</button>
+  </body>
+</html>

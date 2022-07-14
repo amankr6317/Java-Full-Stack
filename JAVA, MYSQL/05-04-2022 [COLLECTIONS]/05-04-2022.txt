@@ -1,0 +1,103 @@
+Collections 	----
+
+Array vs Collection		----
+
+Arrays can store primitive and non-primitive (Object) type data.
+Collection can contain non-primitive type of data.
+
+Array can store homogenous type data.
+Collection can store heterogenous type of data.
+
+Array size is fixed.
+Collection we can increase or decrease the size at runtime.
+
+Array is built in feature in java.
+Collection framework is an API which provides the classes interfaces and methods.
+
+Collection Framework	----
+
+Collection is the single entity or object which can store multiple data.
+Framework represents the library.
+Collection Framework is the set of predefined classes and instances which is used to store the multiple data.
+
+Collection Framework, Collection and Collections	----
+Collection Framework (API) - It is an APi which contains predefined classes and interfaces.
+Collection (Interface) - It is the root interface (present in java.util package) of all the collection objects.
+Collections (Utility Class) - It is the utility class which contains only static methods.
+
+Hierarchy Collection	----
+	
+	Iterable (I)
+		- Collection (I)
+			- List (I)
+				- ArrayList (C)
+				- LinkedList (C)
+				- Vector (C)
+					- Stack (C)	
+			- Queue (I)
+				- PriorityQueue (C)	
+				- Deque (I)	
+					- ArrayDeque (C)
+			- Set (I)
+				- Hashset (C)
+				- LinkedHashSet (C)
+				- SortedSet (I)
+				- TreeSet (C)	
+				
+Hierarchy Map	-----
+
+	Map (I)
+		- Hashtable
+		- Hashmap
+			- LinkedHashMap
+		- SortedMap (I)
+			- NavigableMap (I)
+				- TreeMap					
+				
+List VS Set 	----
+
+List is an index based data structure.
+Set is not an index based data structure. It strore the data according to Hashcode.
+
+List can store duplicate elememts.
+Set does not allow to store duplicate elements.
+
+List can store any number of nulls.
+Set can store only one null value.
+
+List follows the insertion order.
+Set does not follows the insertion order.
+
+We can iterate -> Iterator and ListIterator(List)
+We can iterate -> Iterator(Set)
+
+Iterator VS ListIterator	----
+
+Iterator	----
+	- We can get iterator cursor by iterator method. (Iterator i=al.iterator();)
+	- Iterator cursor can be used with any collection object.
+	- Iterator method are:-
+			hasNext(), next(), remove()
+	- By using iterator cursor we can retrieve the elemets only in forward direction.
+	- Using iterator cursor, we can read and remove the elements.
+	
+List Iterator	----
+	- We can get Listiterator cursor by Listiterator() method. (ListIterator li=al.Listiterator();)
+	- Listiterator cursor can be used only with List implemented classes that is arraylist, linkedlist, vector, stack.
+	- ListIterator Method are:-
+			hasNext(), next(), hasPrevious(), previous(), remove(), set()
+	- ListIterator cursor we can reterive the elements in forward and backward direction.
+	- By Using ListIterator cursor, We can read, remove, replace and the elements.
+		
+Enumeration Cursor	----
+
+it is the cursor which is used to retrive collection object one by one.
+enumeration cursor can be used only with legacy classes that is vector and stack.
+enumeration cursor can be get by elements() method
+	enumeration e=vec.elements();
+methods of enumeration cursor are: -
+	hasMoreElements(), nextElememt()
+enumeration cursor can be used to reterive the elements only in forward direction.
+enumeration cursor can be used for only read operations.
+
+isEmpty(), size() ////////////////////////////					

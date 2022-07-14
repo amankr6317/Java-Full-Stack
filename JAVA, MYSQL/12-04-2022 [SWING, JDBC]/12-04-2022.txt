@@ -1,0 +1,61 @@
+AWT VS SWING 	----
+
+AWT components are platform dependent and swing components are platform independent.
+AWT components are heavyweight and swing lightweight.
+AWT doesnt support pluggable look and feel and sing supports.
+AWT doest follow MVC and swing follows MVC.
+JButton, Jlabel, JTextArea, JPasswordField, etc.
+
+JDBC  ----
+
+JDBC stands for Java Database Connectivity.
+it is a standard API provided by oracle for java applications to interact with diffrent set of databases.
+four types of JDBC Driver.
+	- JDBC_ODBC Bridge Driver
+	- Native Driver(partially Java Driver).
+	- Network Protocol Driver(Full java Driver).
+	- Thin Driver(Full java driver).
+
+JDBC API to access tabular data stored in any relational database. By the help of JDBC API, we can save, update, delete and fetch data from the database.
+
+	JDBC API --> JAVA Application --> JDBC Driver --> Database
+	
+JAVA-ODBC DRIVER 	----
+from JAVA 8 It has been removed.
+Oracle recommends you use jdbc driver which is provided by the vendor 
+Disadvantage:- Performance degraded.	
+
+NATIVE API DRIVER	 ----
+it user client side libraries of the database.
+it is not fully written in java.
+Disadvantage:- Client library needs to be installed on client machine.
+
+NETWORK PROTOCOL DRIVER		----
+middleware --> application server that jdbc calls to the vender specific database
+Advantage:- No client side library required.
+Disavdantage :- Specific coding in the middle ware.
+				Costly because it require specific coding.
+
+Thin DRIVER		----
+better performance than all the drivers.
+	
+
+Steps to connect with database
+
+1.load the driver:
+	Class.forName("com.mysql.jdbc.Driver");
+	Or DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+2.Create a connection:
+	Connection con=DriverManager.getConnection("URL","user","pass");
+	url:-jdbc:mysql://localhost:3306/dbname
+
+3.Create Sql Query Statement.PreparedStatement(Dynamic, ?), CallableStatement(procedure/Functions)
+	String a="Select * from employee;";
+	Statement stmt=con.createStatement();
+	ResultSet set=stmt.executeQuery(a);
+
+4.Process the data(When select statement used)
+	while(set.nect()) {}
+	
+5.connection.close()							

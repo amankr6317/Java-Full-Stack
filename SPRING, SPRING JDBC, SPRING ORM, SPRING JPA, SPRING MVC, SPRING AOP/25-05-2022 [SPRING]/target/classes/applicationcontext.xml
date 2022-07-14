@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.yash.Collection" name="Collection">
+		<property name="addressList">
+			<list>
+				<value>A</value>
+				<value>B</value>
+				<value>C</value>
+				<value>C</value>
+			</list>
+		</property>
+		<property name="addressSet">
+			<set>
+				<value>A</value>
+				<value>B</value>
+				<value>C</value>
+				<value>C</value>
+			</set>
+		</property>
+		<property name="addressMap">
+			<map>
+				<entry key="1" value="A" />
+				<entry key="2" value="B" />
+				<entry key="3" value="C" />
+				<entry key="4" value="C" />
+			</map>
+		</property>
+		<property name="addressProperties">
+			<props>
+				<prop key="one">A</prop>
+				<prop key="two">B</prop>
+				<prop key="two">C</prop>
+				<prop key="three">C</prop>
+			</props>
+		</property>
+	</bean>
+
+	<context:annotation-config />
+
+	<bean class="com.yash.Address" name="address">
+		<property name="street" value="NA"></property>
+		<property name="city" value="Indore"></property>
+	</bean>
+
+	<bean class="com.yash.Employee" name="employee" />
+
+</beans>

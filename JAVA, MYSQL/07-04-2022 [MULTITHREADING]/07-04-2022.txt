@@ -1,0 +1,76 @@
+Thread class 	----
+
+There are 2 ways to create thread:
+	1.Thread 	2.Runnable Interface
+	
+Methods:
+	run(), start(), sleep(), join(), setName(), priority, daemon
+
+Steps to create Thread
+	1.extends the Thread Class.
+	2.Override the run() method(Thread task).
+	3.Create an object the class.
+	4.Start the thread.
+
+When we extends the thread class, we can't extends any other class but when we implements runnable we can have a space to extends any other class.
+When we extends the thread, each of the thread created unique object but when we implements runnable, share the same object to multiple threads.
+
+Thread and runnable		----
+Thread is a class it is used to create a thread but runnable is a interface which is used to create thread.
+Thread has multiple methods including start() and run() but in runnable has only abstract method run().
+Each thread craete a unique object and in runnable share the same Objects.
+More memory required in thread and less memory required in runnable.
+If extends the thread class it cannot extends any other class but if you implemented runnable then your class can extend another class.		
+
+										  <--- Waiting <---
+		[notify(), notifyAll(), resume()] |			      | [wait(), sleep(), suspend()]
+							   New ---> Runnable <---> Running ---> Terminated
+							   					yield()
+							   					
+Different cases for executing the thread 	----
+
+1. Performing single task from single thread.
+2. Performing single task from multiple threads.
+3. Performing multiple task from multiple threads.
+
+Thread Constructors and Methods 	----
+
+Constructor	----
+
+1.Thread() 	
+2.Thread(Runnable t) 	
+3.Thread(String s)		
+4.Thread(Runnable t, String s)
+5.Thread(ThreadGroup tg, Runnable t)	
+6.Thread(ThreadGroup tg, String s) 								   					
+7.Thread(ThreadGroup tg, Runnable t, String s)	
+8.Thread(ThreadGroup tg, Runnable t, String s, long stacksize)	
+
+Method	----
+
+basic method : run(), start(), currentThread(), isAlive()
+Naming method : getName(), setName(String name)
+daemon thread method : isDaemon(), setDaemon(boolean b)
+Priority : getPriority, setPriority(int pri)
+Prevent thread execution : sleep(), yield(), join(), suspend(), resume(), stop(), destroy()
+Interrupting : interrupt(), isInterrupted(), interrupted()
+class object : wait(), notify(), notifyAll()	
+
+Priorities 	----
+
+1.JVM provides the priorities to each thread.
+2.Priorities are represented in the form of integer and it range from 1-10
+3. 1->MIN_PRIORITY, 5->NORM_PRIORITY, 10->MAX_PRIORITY
+4. By default main thread priority is 5.
+
+Daemon thread	----
+1. Thread which runs in the background of another thread
+2. It provides service to the thread.
+3. We have to create Daemon thread before starting the thread.
+4. we cannot create main thread as Daemon thread.
+
+Yield() and Join()	 ----				   
+
+it stops the current executing thread and provide chance to another thrad of the same or higher priority execute
+
+if thread wants to wait for another thread to complete the task.

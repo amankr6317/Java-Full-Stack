@@ -1,0 +1,65 @@
+Enumeration in JAVA		----
+
+An enum is special class that define a set of constants.
+Variable of the type must be equal to one of the constant values that have been predefined.
+
+Example:- 
+	enum directions {EAST, WEST, NORTH, SOUTH}
+	enum direction {EAST, WEST, NORTH, SOUTH;}
+
+Enum declaration can be done outside a class or inside a class or inside a class but not inside a method.
+All constant in capital letters.
+Every enum internally implemented by using class
+
+class Directions {
+	Public static Final Directions East=new Directions();
+}
+
+Every enum constant represent an object of type enum.
+Enum type can be passed as an argument to switch statement.
+Enum are used to create our own data type like classes.
+
+When to use enum and methods in enum	----
+
+When you need to respresent a fixed set of constrants.
+
+Example:-
+	Days of the week
+	Cards
+	Choices or options fixed
+
+There are three types of methods in enum
+value() = it can be used to return all value present inside enum.
+ordinal() = order is important in enums. It can be used when find enum constant index.
+ValueOf() = used returns the enum constant of the spedified string value, if exists.
+
+enum Directions {
+	EAST(10), WEST(20), NORTH(30), SOUTH(40);
+	int val;
+	Directions(int val) {
+		this.val=val;
+	}
+}
+public class EnumDemo {
+	public static void main(String[] args) {
+		// Directions d=Directions.EAST;
+		// System.out.println(d);
+		for(Directions d:Directions.values()) {
+			System.out.println(d+" "+d.val);
+		}
+	}
+}
+
+
+class EnumOrdinalDemo {
+	enum Directions {
+		EAST, WEST, NORTH, SOUTH;
+	}
+	public static void main(String[] args) {
+		for(Directions d:Directions.values()) {
+			System.out.println(d);
+		}
+		System.out.println("Value of:"+Directions.valueOf("WEST"));
+		System.out.println("Index of:"+Directions.valueOf("NORTH").ordinal());
+	} 
+}

@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="com.yash.Triangle" id="triangle">
+		<property name="pointA" ref="point1"/>
+		<property name="pointB" ref="point2"/>
+		<property name="pointC" ref="point3"/>
+	</bean>
+	   
+	<bean id="point1" class="com.yash.Point">
+		<property name="x" value="0"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="point2" class="com.yash.Point">
+		<property name="x" value="-20"/>
+		<property name="y" value="0"/>
+	</bean>
+	<bean id="point3" class="com.yash.Point">
+		<property name="x" value="20"/>
+		<property name="y" value="0"/>
+	</bean>
+
+</beans>

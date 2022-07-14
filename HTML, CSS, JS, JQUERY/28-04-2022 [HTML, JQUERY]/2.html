@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="jquery.js"></script>
+
+    <script>
+      $(document).ready(
+        function () //preventing the jquery to run before the page loaded
+
+        {
+          $("#enable").click(function () {
+            if ($("#btn").is(":disabled")) {
+              $("#btn").removeAttr("disabled");
+            } else {
+              $("#btn").attr("disabled", "disabled");
+            }
+          });
+        }
+      );
+    </script>
+  </head>
+
+  <body>
+    <input
+      id="btn"
+      disabled="disabled"
+      name="Submit"
+      type="submit"
+      value="Submit"
+    />
+
+    <input id="enable" type="checkbox" />I accept<br />
+  </body>
+</html>
